@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" />
+    <title>首页</title>
+    <!-- Bootstrap -->
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="lib/html5shiv/html5shiv.min.js"></script>
+      <script src="lib/respond/respond.min.js"></script>
+    <![endif]-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+     <link rel="stylesheet" href="lib/Swiper-3.3.1/dist/css/swiper.min.css">
+        <script type="text/javascript" src="lib/jquery-1.11.3.js"></script>
+        <script type="text/javascript" src="lib/Swiper-3.3.1/dist/js/swiper.min.js"></script>
+        <script type="text/javascript" src="lib/Swiper-3.3.1/dist/js/swiper.jquery.min.js"></script>
+    <style>
+    ul{
+        list-style: none;
+    }
+    *,
+    ::before,
+    ::after {
+        margin: 0;
+        padding: 0;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-box-sizing: border-box;
+    }
+    
+    body {
+        background: #F5F5F5;
+        font-size: 14px;
+        font-family: "Microsoft YaHei", sans-serif;
+        color: #000;
+    }
+    
+    .fix {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 40px;
+        z-index: 999;
+    }
+    
+    .jd-header {
+        min-width: 300px;
+        max-width: 640px;
+        margin: 0 auto;
+        position: relative;
+        background: rgba(201, 21, 35, 0.85);
+        height: 40px;
+    }
+    
+    .jd-box {
+        min-width: 300px;
+        max-width: 640px;
+        margin: 0 auto;
+        position: relative;
+    }
+    
+    .icon_logo {
+        width: 60px;
+        height: 34px;
+        display: block;
+        position: absolute;
+        top: 4px;
+        left: 10px;
+        background: url("images/sprites.png") no-repeat;
+        background-size: 200px 200px;
+        background-position: 0 -103px;
+    }
+    
+    .jd-header-form input {
+        width: 100%;
+        height: 30px;
+        border-radius: 15px;
+        margin-top: 5px;
+        margin-left: 100px;
+        padding-left: 30px;
+        border: none;
+    }
+    
+    .icon_search {
+        position: absolute;
+        left: 110px;
+        top: 11px;
+        display: block;
+        width: 20px;
+        height: 20px;
+    }
+    
+    .jd-header-form img {
+        cursor: pointer;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        left: 125px;
+        top: 10px;
+    }
+    
+    .login {
+        padding-top: 10px;
+        display: block;
+        float: right;
+        width: 60px;
+        font-size: 15px;
+        color: #fff;
+    }
+    
+    .login:hover {
+        color: #fff;
+        text-decoration: none;
+    }
+    /*轮播图*/
+    .jd-lbimg{
+        border:1px solid red;
+        height: 311px;
+        /*overflow: hidden;*/
+        position: absolute;
+        left: 0;
+        width: 100%;
+    }
+    .jd-lbimg li img{
+        width: 100%;
+        float: left;
+        
+    }
+    .jd-lbimg li{
+        display:inline-block;
+    }
+    
+    .jd-lbimg ul {
+        list-style: none;
+        width: 100%;
+    }
+
+    .jd_nav{
+        padding-top: 20px;
+        height: 240px;
+        border-bottom: 1px solid #e0e0e0;
+    }
+    .jd_nav ul{
+        text-align: center;
+        list-style: none;
+        width: 100%;
+    }
+    .jd_nav ul li{
+        float: left;
+        width: 25%;
+    }
+    .jd_nav ul li a p{
+        color: #666;
+        font-size: 12px;
+    }
+
+
+
+
+        /*觉醒*/
+    .jd-product{
+        margin: 0px 5px;
+    }
+    .zsms{
+        margin-top: 50px;
+        border:1px solid #E7E7E7;
+        border: none;
+    }
+    .zsms img{
+        margin: 10px 0;
+        margin-left: 5px;
+        width: 16px;
+        height: 20px;
+    }
+    .zsms .zhms-title{
+        vertical-align: middle;
+        padding-left: 5px;
+        font-size: 15px;
+        color: #d8505c;
+        line-height: 15px;
+    }
+    .zsms-time{
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .zsms-time .num{
+        vertical-align: middle;
+        width: 15px;
+        background: #333;
+        text-align: center;
+        color: #fff;
+        border-right:3px solid #333;
+        border-left:3px solid #333;
+    }
+    .zsms-time{
+        padding-left: 10px;
+    }
+    .zsms a{
+        float: right;
+        color: #000;
+        padding-right: 5px;
+        margin-top: 10px;
+    }
+    .zsms-content a div{
+        width:100%;
+    }
+    .zsms-content ul li a div img{
+        border-right:1px solid #E0E0E0;
+        width: 100%;
+    }
+    .zsms-content a .new{
+        color: #d8505c;
+        font-size: 13px;
+    }
+    .zsms-content a .old{
+        color: #666;
+        font-size: 13px;
+        text-decoration: line-through;
+    }
+    .zsms-content a p{
+        text-align: center;
+    }
+    .zsms-content{
+        float: left;
+        width: 100%;
+    }
+    .zsms-content ul{
+        width: 100%;
+        padding:10px 0;
+    }
+     .zsms-content ul li{
+        text-align: center;
+        width: 33.3333333%;
+        float: left;
+    }
+    .zsms-content{
+        border:1px solid #E7E7E7;
+    }
+    .zsms-bd{
+        margin-top: 20px;
+        border:1px solid #E7E7E7;
+        border: 1px solid #E0E0E0;
+    }
+
+
+
+    .zsms .zhms-title{
+        color: #000;
+    }
+    .zsms .zhms-title .hehe{
+        display: inline-block;
+        color: #D8505C;
+        background: #D8505C;
+    } 
+    .czg-img{
+        height: 300px;
+        width: 100%;
+        display: inline-block;
+    }
+    .czg-img1{
+        border:1px solid #E0E0E0;
+        float: left;
+        width: 50%;
+    }
+    .czg-img2{
+        border-top:1px solid #E0E0E0;
+        border-bottom:1px solid #E0E0E0;
+        border-right:1px solid #E0E0E0;
+        float: right;
+        width: 50%;
+    }
+    .czg-img3{
+        float: right;
+        width: 50%
+    }
+    </style>
+</head>
+
+<body>
+    <div class="jd-box ">
+        <!-- 头部 -->
+        <div class="container">
+            <div class="fix">
+                <div class="jd-header">
+                    <a href="#" class="icon_logo col-xs-2 text-center"></a>
+                    <form action="" class="jd-header-form col-xs-9 text-center">
+                        <img src="images/fdj.jpg" alt="" id="fdj">
+                        <input type="text" placeholder="韩红限量版充气娃娃五折起">
+                    </form>
+                    <a href="#" class="login col-xs-1 hidden-xs">登录</a>
+                </div>
+            </div>
+
+
+            <!-- 轮播图 -->
+        </div>
+        <div class="swiper-container">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                    <img src="images/l1.jpg" alt="" class="img-responsive">
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/l2.jpg" alt="" class="img-responsive">
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/l3.jpg" alt="" class="img-responsive">
+                </div>
+                 <div class="swiper-slide">
+                    <img src="images/l4.jpg" alt="" class="img-responsive">
+                </div>
+                 <div class="swiper-slide">
+                    <img src="images/l5.jpg" alt="" class="img-responsive">
+                </div>
+                 <div class="swiper-slide">
+                    <img src="images/l6.jpg" alt="" class="img-responsive">
+                </div>
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+            
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            
+            <!-- If we need scrollbar -->
+            <div class="swiper-scrollbar"></div>
+        </div>
+
+
+        <!-- 谁比谁好，能差到多少 -->
+        <nav class="jd_nav">
+            <ul>
+                <li>
+                    <a href="">
+                        <img src="images/nav0.png" alt=""/>
+                        <p>分类查询</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="images/nav1.png" alt=""/>
+                        <p>物流查询</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="images/nav2.png" alt=""/>
+                        <p>购物车</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="images/nav3.png" alt=""/>
+                        <p>我的京东</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="images/nav4.png" alt=""/>
+                        <p>充值</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="images/nav5.png" alt=""/>
+                        <p>领券中心</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="images/nav6.png" alt=""/>
+                        <p>京东超市</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="images/nav7.png" alt=""/>
+                        <p>我的关注</p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+            <!-- 最后的滋味就是耐人寻味 -->
+            <main class="jd-product">
+                <div class="zsms">
+                <div class="zsms-bd">
+                    <img src="images/seckill-icon.png" alt="">
+                    <span class="zhms-title">掌上秒杀</span>
+                        <div class="zsms-time">
+                            <span class="num">0</span>
+                            <span class="num">0</span>
+                            <span class="str">:</span>
+                            <span class="num">0</span>
+                            <span class="num">0</span>
+                            <span class="str">:</span>
+                            <span class="num">0</span>
+                            <span class="num">0</span>
+                        </div>
+                        <a href="#">更多></a>
+                    </div>
+                </div>
+                <div class="zsms-content">
+                    <ul>
+                        <li>
+                            <a href="">
+                                <div>
+                                    <img src="images/detail02.jpg" alt="">                                
+                                </div>
+                                <p class="new">¥20.00</p>
+                                <p class="old">¥200.00</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div>
+                                    <img src="images/detail02.jpg" alt="">                                
+                                </div>
+                                <p class="new">¥20.00</p>
+                                <p class="old">¥200.00</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div>
+                                    <img src="images/detail02.jpg" alt="">                                
+                                </div>
+                                <p class="new">¥20.00</p>
+                                <p class="old">¥200.00</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </main>
+        
+        
+      
+
+        <!-- 辛德瑞拉的眼泪，难道就不珍贵么 -->
+
+            <div class="zsms">
+                    <span class="zhms-title"><span class="hehe">|</span> 超值购</span>
+                </div>
+                    <div class="czg-img">
+                        <a href=""><img src="images/cp1.jpg" alt="" class="czg-img1"></a>
+                        <a href=""><img src="images/cp2.jpg" alt="" class="czg-img2"></a>
+                        <a href=""><img src="images/cp3.jpg" alt="" class="czg-img3"></a>
+                </div>
+
+
+                <div class="zsms">
+                    <span class="zhms-title"><span class="hehe">|</span> 热门活动</span>
+                </div>
+                    <div class="czg-img">
+                        <a href=""><img src="images/cp1.jpg" alt="" class="czg-img1"></a>
+                        <a href=""><img src="images/cp2.jpg" alt="" class="czg-img2"></a>
+                        <a href=""><img src="images/cp3.jpg" alt="" class="czg-img3"></a>
+                </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    // content title 
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        paginationClickable: true,
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: 2500,
+        autoplayDisableOnInteraction: false
+    });
+</script>
